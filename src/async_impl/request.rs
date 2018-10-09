@@ -263,7 +263,7 @@ impl RequestBuilder {
     }
 
     ///
-    pub fn multipart(&mut self, multipart: ::multipart::Form) -> &mut RequestBuilder {
+    pub fn multipart(mut self, multipart: ::multipart::Form) -> RequestBuilder {
         use std::io::Read;
         if let Ok(ref mut req) = self.request {
             req.headers_mut().insert(
